@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>J&A Landscaping</title>
+<style>
+  :root {
+    --primary: #2f6b34;
+    --primary-dark: #1c4520;
+    --accent: #8c5a2b;
+    --ink: #1a2018;
+    --paper: #ffffff;
+    --paper-alt: #f1f5f0;
+    --muted: #5a655a;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0;
+  }
+  .brand {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 800; font-size: 1.3rem; letter-spacing: 0.02em;
+    color: var(--primary-dark);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 0.95rem; font-weight: 600; }
+  .nav-links a { text-decoration: none; color: var(--ink); opacity: 0.85; }
+  .nav-links a:hover { opacity: 1; color: var(--primary-dark); }
+  .nav-cta {
+    background: var(--primary); color: #fff !important; padding: 10px 18px;
+    border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  .hero {
+    background: linear-gradient(160deg, var(--primary-dark), var(--primary));
+    color: #fff;
+    padding: 80px 0 90px;
+  }
+  .hero .wrap { display: grid; gap: 18px; max-width: 760px; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem;
+    font-weight: 700; opacity: 0.85;
+  }
+  h1 {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+    line-height: 1.08; margin: 0; font-weight: 800;
+  }
+  .hero p.lead { font-size: 1.15rem; opacity: 0.94; max-width: 560px; margin: 0; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+  .btn {
+    display: inline-block; padding: 13px 24px; border-radius: 9px;
+    font-weight: 700; text-decoration: none; font-size: 0.98rem;
+  }
+  .btn-solid { background: #fff; color: var(--primary-dark); }
+  .btn-outline { border: 2px solid rgba(255,255,255,0.7); color: #fff; }
+
+  section { padding: 64px 0; }
+  .alt { background: var(--paper-alt); }
+  h2 {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin: 0 0 10px; font-weight: 800; color: var(--primary-dark);
+  }
+  .section-sub { color: var(--muted); max-width: 620px; margin-bottom: 36px; font-size: 1.02rem; }
+
+  .grid { display: grid; gap: 24px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 760px) {
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 14px;
+    padding: 28px 24px;
+  }
+  .card .icon {
+    width: 46px; height: 46px; border-radius: 10px;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; margin-bottom: 16px; font-weight: 800;
+  }
+  .card h3 { margin: 0 0 8px; font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 1.15rem; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+
+  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+  .stat-row { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+  .stat { }
+  .stat .num { font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 2rem; font-weight: 800; color: var(--primary-dark); }
+  .stat .lbl { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .photo-block {
+    background: var(--accent); border-radius: 18px; min-height: 260px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 1.1rem; text-align: center; padding: 24px;
+  }
+
+  blockquote {
+    background: var(--paper-alt); border-left: 5px solid var(--primary);
+    padding: 26px 30px; border-radius: 10px; font-size: 1.15rem; margin: 0 0 14px;
+    font-style: italic;
+  }
+  .quote-attr { color: var(--muted); font-size: 0.92rem; font-style: normal; }
+
+  .cta-band {
+    background: var(--primary-dark); color: #fff; text-align: center;
+  }
+  .cta-band h2 { color: #fff; }
+  .cta-band p { opacity: 0.9; max-width: 520px; margin: 0 auto 26px; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-item { margin-bottom: 20px; }
+  .contact-item .lbl { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }
+  .contact-item .val { font-size: 1.2rem; font-weight: 700; }
+  .contact-item a { text-decoration: none; color: var(--primary-dark); }
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table td { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.07); font-size: 0.95rem; }
+  .hours-table td:last-child { text-align: right; color: var(--muted); }
+
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.7);
+    padding: 32px 0; font-size: 0.88rem;
+  }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer strong { color: #fff; }
+  .badge {
+    display: inline-block; background: rgba(255,255,255,0.12); color: #fff;
+    padding: 4px 10px; border-radius: 100px; font-size: 0.75rem; margin-left: 10px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">J&A Landscaping</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="tel:+18563403811">Call (856) 340-3811</a>
+  </div>
+</header>
+
+<div id="top" class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Hammonton, NJ · Full-Service Landscaping</div>
+    <h1>A Yard You'll Be Proud Of</h1>
+    <p class="lead">South Jersey landscaping and lawn care that keeps your property looking sharp all year long — from routine mowing to full-scale transformations.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="tel:+18563403811">Call (856) 340-3811</a>
+      <a class="btn btn-outline" href="#contact">Get In Touch</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>South Jersey's Landscaping Team</h2>
+      <p>J&A Landscaping serves Hammonton and the surrounding Atlantic County area with dependable, hardworking landscaping crews. Whether it's weekly mowing or a full yard redesign, we treat every property like it's the one we'll be judged by.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">Local</div><div class="lbl">Family Operated</div></div><div class="stat"><div class="num">Year-Round</div><div class="lbl">Service</div></div><div class="stat"><div class="num">Reliable</div><div class="lbl">Crews You Can Count On</div></div>
+      </div>
+    </div>
+    <div class="photo-block">Serving Hammonton &amp; Atlantic County properties</div>
+  </div>
+</section>
+
+<section id="services" class="alt">
+  <div class="wrap">
+    <h2>What We Do</h2>
+    <p class="section-sub">From weekly upkeep to full landscape design, we've got it covered.</p>
+    <div class="grid grid-3">
+      <div class="card"><div class="icon">🌿</div><h3>Lawn Care</h3><p>Mowing, edging, and seasonal cleanups to keep your lawn looking its best.</p></div><div class="card"><div class="icon">🌳</div><h3>Landscape Design</h3><p>Planting beds, mulch, and hardscaping to transform your outdoor space.</p></div><div class="card"><div class="icon">❄️</div><h3>Seasonal Services</h3><p>Spring and fall cleanups, leaf removal, and snow-season prep.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2>What People Are Saying</h2>
+    <div class="grid grid-2">
+      <blockquote>&ldquo;Shows up on time, does great work, fair pricing. Can't ask for more.&rdquo;<div class="quote-attr">— Hammonton homeowner</div></blockquote>
+      <blockquote>&ldquo;Our yard has never looked better. Highly recommend.&rdquo;<div class="quote-attr">— South Jersey customer</div></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready for a Better Yard?</h2>
+    <p>Call today for a free estimate on your property.</p>
+    <a class="btn btn-solid" href="tel:+18563403811">Call (856) 340-3811</a>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Visit or Call Us</h2>
+      <div class="contact-item">
+        <div class="lbl">Phone</div>
+        <div class="val"><a href="tel:+18563403811">(856) 340-3811</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">Location</div>
+        <div class="val">1602 Mays Landing Rd, Hammonton, NJ 08037</div>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">Find Us Online</div>
+        <div class="val"><a href="https://www.yellowpages.com/hammonton-nj/mip/j-a-landscaping-473693063" target="_blank" rel="noopener">View our listing</a></div>
+      </div>
+    </div>
+    <div>
+      <table class="hours-table">
+        <tr><td>Monday – Friday</td><td>7:00 AM – 5:00 PM</td></tr><tr><td>Saturday</td><td>By appointment</td></tr><tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong>J&A Landscaping</strong> &middot; Hammonton, NJ<span class="badge">Demo site by Straga Hybrid Marketing</span></div>
+    <div>&copy; 2026 J&A Landscaping</div>
+  </div>
+</footer>
+
+</body>
+</html>
